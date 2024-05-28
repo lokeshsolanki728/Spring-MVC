@@ -10,12 +10,19 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	<context:component-scan base-package="in.com" />
-	<mvc:annotation-driven />
+	<import resource="Hibernate-servlet.xml"/>
+	
 	<bean id="ViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/Pages/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-
+<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/ctl/**" />
+			<mvc:exclude-mapping path="LoginCtl" />
+			<bean class="in.com.ctl.FrontCtl"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>

@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome View</title>
 </head>
+<%@include file="Header.jsp" %>
 <body>
 <h1>Wlcome Page Running</h1>
 </body>
